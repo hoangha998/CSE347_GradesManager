@@ -72,7 +72,7 @@ class GradesManager():
 
         # converted gradescope grades
         reformatted_grades = self.final_grades
-        reformatted_grades = reformatted_grades[['SID', 'Late Days Used', 'Final Grade']] # only need student id & final grade
+        reformatted_grades = deepcopy(reformatted_grades[['SID', 'Late Days Used', 'Final Grade']]) # only need student id & final grade
         reformatted_grades.rename({'SID':'SIS User ID', 'Final Grade': 'This Homework Grade'}
                                   , axis=1, inplace=True) # rename to match canvas file for mergin
 

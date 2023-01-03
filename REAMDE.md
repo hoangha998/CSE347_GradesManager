@@ -29,21 +29,32 @@ $ sudo apt-get install python-tk
 
 ## First-time setup
 
+At the beginning of every semester, this repo can be cloned fresh to reset everything (grade files, late days history, etc.)
+
+![fresh clone](https://i.ibb.co/PZvBFTH/image.png)
+
 From a terminal, run:
 ``` bash
 $ python initialization.py
 ```
 This will setup the files & folders structure necessary for the grades manager app.
 
+![after running initialization](https://i.ibb.co/Bz9ZMcv/image.png)
+
 ## Usage guidelines
 
 To convert a homework’s grades, the first step is to obtaining the raw grade file from Gradescope and the latest Grade book from Canvas:
 
-1.  Navigate to the assignment’s Gradescope page and select “Export grades” (as `.xlsx`), download the file and save it in the folder `./Raw_gradescope_grades`
+1.  Navigate to the assignment’s Gradescope page and select “Download grades” (for Excel), download the file and save it in the folder `./Raw_gradescope_grades`
+	![Download raw grades from Gradescope](https://i.ibb.co/ZgsNRx8/image.png)
     
-2.  From the course Canvas page, go to Grades → Export entire gradebook, download it and save it in `./Gradebook_from_canvas`
+2.  From the course Canvas page, go to "Grades" → "Actions" → Export entire gradebook, download it and save it in `./Gradebook_from_canvas`
 
-Now, run `app.py` either by double clicking on it or open it in a terminal program. You should see an UI like below. Simply fill out the input fields sequentially:
+	![Download latest gradebook](https://i.ibb.co/4jrgcLP/image.png)
+
+Now, run `app.py` either by double clicking on it or open it in a terminal program (e.g. `$ python3 app.py`). You should see an UI like below. Simply fill out the input fields sequentially.
+
+![Sample run](https://i.ibb.co/68P88mp/image.png)
 
 1.  Homework number as an integer
 	> Used to calculate late coupons left based on the late days of previous homeworks, and to save output files.
@@ -60,9 +71,11 @@ Now, run `app.py` either by double clicking on it or open it in a terminal progr
 
 6.  After making sure all the steps above are correct, click on “Reformat Grades”.
     > The reformatted gradescope file will be saved to `./Reformatted_grades`. The Canvas gradebook with the current assignment grades and late days will be saved to `./Export_for_canvas`
-  
+
+ 
 ## General notes
 
+- If there are students dropping/getting added to the class, no changes are needed as the grades manager app will automatically assign 0 late days used for new students and disregard the grades of dropped students when exporting converted grades to the Canvas grade book (Tested). 
 -   To keep track of late days used history for students, I used a `csv` file located in `Late_days/late_days_history.xlsx`. The first column of this file contains the students’ ID and each subsequent column corresponds to the late days used for each homework.
     > Each late days used cell always have value between 0 and 2 (for example, if a student was 4 days late for homework, since they will have a 0 by the course’s policy, technically no late days were used)
 

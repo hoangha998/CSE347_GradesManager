@@ -14,7 +14,7 @@ class App:
     def __init__(self, root):
         self.root = root
         #setting title
-        root.title("CSE 347 Homework Grades Monitor")
+        root.title("CSE 347 Homework Grades Manager")
         #setting window size
         self.width=600
         self.height=600
