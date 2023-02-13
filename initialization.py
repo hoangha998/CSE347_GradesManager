@@ -7,8 +7,8 @@ for folder in required_folders:
 	if not os.path.isdir(folder):
 		os.mkdir(folder)
 
-late_days_history_path = 'Late_days/test.xlsx'
+late_days_history_path = 'Late_days/late_days_used_history.xlsx'
 if not os.path.isfile(late_days_history_path):
 	columns = ['SID'] + ['HW' + str(num) for num in range(1,12)]
 	late_days_df = pd.DataFrame(columns=columns)
-	late_days_df.to_csv(late_days_history_path, index=False)
+	late_days_df.to_excel(late_days_history_path, index=False)
